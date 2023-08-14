@@ -1,0 +1,465 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>Dashboard</title>
+
+        <link rel="stylesheet" href="interior/style.css" />
+        <link rel="stylesheet" href="interior/css/apexcharts.css" />
+        <link rel="stylesheet" href="interior/css/animate.min.css"/>
+    </head>
+
+    <body>
+        <div account_id="<%= account_id %>" hidden></div>
+        <div csrfToken="<%= csrfToken %>" hidden></div>
+        <div token="<%= token %>" hidden></div>
+        <div verified="<%= verified %>" hidden></div>
+
+        <div style="display:none" id="success_payment_anim">
+             <div class="success_payment_anim-content">
+                <h1 class="animate__animated animate__flash animate__infinite animate__slower">Plan upgraded.</h1>
+             </div>
+        </div>
+
+        <div id="preloader">
+             <div class="preload-content">
+                <img src="interior/img/loader.gif">
+             </div>
+        </div>
+
+        <div class="ecaps-page-wrapper sidemenu-hover-deactive">
+            <div class="ecaps-sidemenu-area bg-img">
+                <div class="ecaps-logo">
+                    <a href="/"><img class="desktop-logo" src="interior/img/logo.png" alt="Desktop Logo" /> <img class="small-logo" src="interior/img/small-logo.png" alt="Mobile Logo" /></a>
+                </div>
+
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+                    <div class="ecaps-sidenav" id="ecapsSideNav" style="overflow: hidden; width: auto; height: 100%;">
+                        <div class="side-menu-area">
+                            <nav>
+                                <ul class="sidebar-menu tree" data-widget="tree">
+                                    <li class="active">
+                                        <a href="dashboard"><i class="bx bx-home-heart"></i><span>Dashboard</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="commands"><i class="bx bx-info-circle"></i><span>Commands</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="discord"><i class="bx bxl-discord"></i><span>Discord</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="messages"><i class="bx bx-message"></i><span>Messages</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="terminal"><i class="bx bx-terminal"></i><span>Terminal</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="support"><i class="bx bx-support"></i><span>Support</span></a>
+                                    </li>
+                                    <% if (session_url) { %>
+                                      <li>
+                                          <a href="<%= session_url %>" target="_blank"><i class="bx bx-link-external"></i><span>Billing</span></a>
+                                      </li>
+                                    <% }  %>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="slimScrollBar" style="background: rgb(156, 156, 156); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 0px; height: 940px;"></div>
+                    <div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 0px;"></div>
+                </div>
+            </div>
+
+            <div class="ecaps-page-content">
+                <header class="top-header-area d-flex align-items-center justify-content-between">
+                    <div class="left-side-content-area d-flex align-items-center">
+                        <div class="mobile-logo mr-3 mr-sm-4">
+                            <a href="/"><img src="interior/img/small-logo.png" alt="Mobile Logo" /></a>
+                        </div>
+
+                        <div class="ecaps-triggers mr-1 mr-sm-3">
+                            <div class="menu-collasped" id="menuCollasped">
+                                <i class="bx bx-menu"></i>
+                            </div>
+                            <div class="mobile-menu-open" id="mobileMenuOpen">
+                                <i class="bx bx-menu"></i>
+                            </div>
+                        </div>
+
+                        <ul class="left-side-navbar d-flex align-items-center">
+                            <li style="display: none;" class="hide-phone app-search">
+                                <input type="text" class="form-control" placeholder="Search..." />
+                                <span class="bx bx-search-alt"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="right-side-navbar d-flex align-items-center justify-content-end">
+                        <div class="right-side-trigger" id="rightSideTrigger">
+                            <i class="bx bx-menu-alt-right"></i>
+                        </div>
+
+                        <ul class="right-side-content d-flex align-items-center">
+                            <li id="test1" class="nav-item dropdown">
+                                <div id="settings_div" class="settings">
+                                    <i class="bx bx-cog"></i>
+                                </div>
+                                <div id="test2" class="dropdown-menu profile dropdown-menu-right">
+                                    <div style="background-color: #060606;" class="user-profile-area">
+                                        <a href="settings" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-cog"></i> Settings</a>
+                                        <a href="privacy-policy" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-low-vision"></i> Privacy policy</a>
+                                        <a href="terms-of-service" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-info-circle"></i> Terms of service</a>
+                                        <a href="support" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-support"></i> Support</a>
+                                        <a id="sign_out" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-exit"></i> Sign-out</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="main-content">
+                    <div class="container-fluid">
+                      <% if (verified === false) { %>
+                        <div style="color: #f5f5f5;font-size: .9rem;" class="alert alert-primary" role="alert">
+                            You must verify your email to continue. Please check your email to verify your account<br>
+                            Didn't receieve a email? <a id="send_email_verifcation" style="cursor: pointer;color: white;font-weight: 800;">Click here to send again</a>
+                        </div>
+                      <% }  %>
+
+                        <div>
+                            <% if (verified === true) { %>
+                              <div id="no_token">
+                                  <div class="card box-margin">
+                                      <div class="card-body">
+                                          <h5 class="card-title mb-2">Add your discord account</h5>
+
+                                          <p class="mb-30">To be able to use a selfbot you must add a discord account to kuroclient. Once connected, you will have instant access to all commands.</p>
+                                          <div class="text-center">
+                                              <a href="discord" id="add_account"  style="font-weight: 600;" class="btn btn-primary">
+                                                  Add an account
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div id="no_token_overlay"></div>
+                              </div>
+                            <% } else { %>
+                                <div class="locked_overlay"></div>
+                            <% }  %>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4">
+                                    <div class="card box-margin">
+                                        <div class="card-body">
+                                            <div class="float-right"><i class="fa fa-bar-chart-o font-30"></i></div>
+                                            <span class="badge badge-secondary">Selfbot Session</span>
+                                            <h4 id="uptime" class="my-3">00:00</h4>
+                                            <p id="username" class="mb-0">Username:</p>
+                                            <p id="id" class="mb-0">ID:</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card box-margin">
+                                        <div class="card-body">
+                                            <div class="float-right"><i class="fa fa-id-badge text-danger font-30"></i></div>
+                                            <span class="badge badge-danger">Statistics</span>
+                                            <h4 id="enabled" class="my-3" style="font-size: 16px; margin: 10px 0px 1px 0px !important;">Bot status:</h4>
+                                            <p id="prefix" class="mb-0">Prefix:</p>
+                                            <p id="nitrosnipe" class="mb-0">Auto claim nitro:</p>
+                                            <p id="deleteafter" class="mb-0">Auto delete messages:</p>
+                                            <p id="plan" class="mb-0">Plan:</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card box-margin">
+                                        <div class="card-body">
+                                            <div class="float-right"><i class="fa fa-book text-warning font-30"></i></div>
+                                            <span class="badge badge-warning">Resources</span>
+                                            <h4 class="my-3">Resources</h4>
+                                            <a href="https://www.youtube.com/watch?v=OaKrjpFk8TY" target="_blank" style="color: #75a6fe;" class="mb-0">Tutorial</a>
+                                            <br />
+                                            <a href="commands" style="color: #75a6fe;" class="mb-0">Commands</a>
+                                            <br />
+                                            <a href="support" style="color: #75a6fe;" class="mb-0">Support</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 box-margin">
+                                    <div class="card">
+                                        <div id="chart_box_responsive" class="card-body">
+                                            <h4 id="card_title_responsive" class="card-title">Activity</h4>
+                                            <div class="ecommerce-chart" style="position: relative;">
+                                                <div id="chart" style="min-height: 415px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="pro_plan_overlay">
+                                        <a href="pricing" style="font-size: 15px; font-weight: 500;">Pro plan feature🔒</a>
+                                    </div>
+                                    <div style="height: 94%;" class="card mb-30">
+                                        <div class="card-body pb-0">
+                                            <div class="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
+                                                <div class="widgets-card-title">
+                                                    <h5 class="card-title mb-0">People you talk to often</h5>
+                                                </div>
+                                            </div>
+
+                                            <ul id="voice_activity_ids" class="suggestions-lists">
+                                                <li class="d-flex justify-content-between mb-20 align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <a class="user-avatar mr-2"><img style="height: 2.2rem; margin-right: 10px;" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="user" class="thumb-md mb-2 rounded-circle" crossorigin="anonymous" /> </a>
+                                                        </div>
+                                                        <div class="media-support-info">
+                                                            <h6 class="mb-1 font-15">Wumpus#1537</h6>
+                                                            <p style="color: #707d89;" class="mb-0 font-13">Offline</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-support-amount">
+                                                        <p class="mb-0 font-13">On Desktop</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex justify-content-between mb-20 align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <a class="user-avatar mr-2"><img style="height: 2.2rem; margin-right: 10px;" src="https://cdn.discordapp.com/embed/avatars/1.png" alt="user" class="thumb-md mb-2 rounded-circle" crossorigin="anonymous" /> </a>
+                                                        </div>
+                                                        <div class="media-support-info">
+                                                            <h6 class="mb-1 font-15">Carl#6832</h6>
+                                                            <p style="color: #707d89;" class="mb-0 font-13">Offline</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-support-amount">
+                                                        <p class="mb-0 font-13">On Desktop</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex justify-content-between mb-20 align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <a class="user-avatar mr-2"><img style="height: 2.2rem; margin-right: 10px;" src="https://cdn.discordapp.com/embed/avatars/2.png" alt="user" class="thumb-md mb-2 rounded-circle" crossorigin="anonymous" /> </a>
+                                                        </div>
+                                                        <div class="media-support-info">
+                                                            <h6 class="mb-1 font-15">Opey#1485</h6>
+                                                            <p style="color: #707d89;" class="mb-0 font-13">Offline</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-support-amount">
+                                                        <p class="mb-0 font-13">On mobile</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex justify-content-between mb-20 align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <a class="user-avatar mr-2"><img style="height: 2.2rem; margin-right: 10px;" src="https://cdn.discordapp.com/embed/avatars/3.png" alt="user" class="thumb-md mb-2 rounded-circle" crossorigin="anonymous" /> </a>
+                                                        </div>
+                                                        <div class="media-support-info">
+                                                            <h6 class="mb-1 font-15">Genesis#6832</h6>
+                                                            <p style="color: #707d89;" class="mb-0 font-13">Offline</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-support-amount">
+                                                        <p class="mb-0 font-13">On Desktop</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex justify-content-between mb-20 align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div>
+                                                            <a class="user-avatar mr-2">
+                                                                <img style="height: 2.2rem; margin-right: 10px;" src="https://cdn.discordapp.com/embed/avatars/4.png" alt="user" class="thumb-md mb-2 rounded-circle" crossorigin="anonymous" https:="" cdn.discordapp.com="" embed=""
+                                                                avatars="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="media-support-info">
+                                                            <h6 class="mb-1 font-15">Genesis#6832</h6>
+                                                            <p style="color: #707d89;" class="mb-0 font-13">Offline</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media-support-amount">
+                                                        <p class="mb-0 font-13">On Desktop and Mobile</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6 box-margin height-card">
+                                    <div class="card bg-custom earning-date">
+                                        <div class="card-body">
+                                            <div class="dashboard-tab-area">
+                                              <div class="coming_soon">
+                                                  <a style="font-size: 15px; font-weight: 500;">Coming soon!!</a>
+                                              </div>
+                                                <h5 class="text-white card-title">Messages sent this week</h5>
+                                                <div class="bd-example bd-example-tabs">
+                                                    <div class="tab-content" id="tabContent-pills">
+                                                        <div class="tab-pane fade" id="earnings-mon" role="tabpanel" aria-labelledby="pills-earnings-mon">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">359,234<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="earnings-tue" role="tabpanel" aria-labelledby="pills-earnings-tue">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">22,234<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="earnings-wed" role="tabpanel" aria-labelledby="pills-earnings-wed">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">198,234<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="earnings-thu" role="tabpanel" aria-labelledby="pills-earnings-thu">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">2,912 <i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade active show" id="earnings-fri" role="tabpanel" aria-labelledby="pills-earnings-fri">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">2,912<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="earnings-sat" role="tabpanel" aria-labelledby="pills-earnings-sat">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">548,234<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="earnings-sun" role="tabpanel" aria-labelledby="pills-earnings-sun">
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h2 class="text-white mb-3 font-30">459,234<i class="arrow_up"></i></h2>
+                                                                    <span class="text-white mb-3 d-block">TOTAL MESSAGES</span>
+                                                                </div>
+                                                                <div class="dashboard-tab-thumb">
+                                                                    <img src="" alt="" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="nav nav-pills align-items-center" id="pills-tab" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show" id="pills-earnings-sat" data-toggle="pill" href="#earnings-sat" role="tab" aria-controls="earnings-sat" aria-selected="false">Sat</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show" id="pills-earnings-sun" data-toggle="pill" href="#earnings-sun" role="tab" aria-controls="earnings-sun" aria-selected="false">Sun</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="pills-earnings-mon" data-toggle="pill" href="#earnings-mon" role="tab" aria-controls="earnings-mon" aria-selected="false">Mon</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show" id="pills-earnings-tue" data-toggle="pill" href="#earnings-tue" role="tab" aria-controls="earnings-tue" aria-selected="false">Tue</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show" id="pills-earnings-wed" data-toggle="pill" href="#earnings-wed" role="tab" aria-controls="earnings-wed" aria-selected="false">Wed</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show" id="pills-earnings-thu" data-toggle="pill" href="#earnings-thu" role="tab" aria-controls="earnings-thu" aria-selected="false">Thu</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link show active" id="pills-earnings-fri" data-toggle="pill" href="#earnings-fri" role="tab" aria-controls="earnings-fri" aria-selected="true">Fri</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card bg-dark mb-30">
+                                        <div class="card-body py-5">
+                                            <div class="d-flex align-items-center">
+                                                <div class="icon font-30 text-white">
+                                                    <i class="fa fa-ravelry" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="icon-text pl-4">
+                                                    <h5 class="mb-0 text-white">Change log</h5>
+                                                </div>
+                                            </div>
+                                            <p class="mt-4 mb-0 text-white">Our develepors often update the selfbot and website, click the button below to check out the list of changes below. You can also request a feature <a>here</a>.</p>
+                                            <a href="https://help.kuroclient.com/change-log" class="btn btn-rounded btn-outline-light mb-2 mr-2 mt-4">Learn more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="interior/js/default-assets/sweetalert2.all.min.js"></script>
+        <script src="interior/js/default-assets/jquery.min.js"></script>
+        <script src="interior/js/default-assets/active.js"></script>
+        <script src="interior/js/default-assets/apexcharts.min.js"></script>
+        <script src="interior/js/global.js"></script>
+        <script src="interior/js/client.js"></script>
+    </body>
+</html>

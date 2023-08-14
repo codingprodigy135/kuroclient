@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>kuroclient - best discord selfbot client and dashboard</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="exterior/css/main.css" />
+
+        <link rel="stylesheet" href="exterior/css/custom.css" />
+    </head>
+
+    <body>
+        <div id="preloader">
+            <div class="preloader-wrap">
+                <img src="exterior/img/loader.png" alt="logo" class="img-fluid preloader-icon" />
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <header class="main-header w-100 z-10">
+                <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+                    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+                        <a href="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-white.png" alt="logo" class="img-fluid logo-white" />
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                        </a>
+
+                        <a class="navbar-toggler position-absolute right-0 border-0"  role="button">
+                            <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse navbar-collapse justify-content-center">
+                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                                <li><a href="/" class="nav-link">Home</a></li>
+                                <li><a href="pricing" class="nav-link">Pricing</a></li>
+                                <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                                <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                                <li><a href="support" class="nav-link">Support</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+                            <a href="login" class="btn btn-link text-decoration-none me-2">Sign In</a>
+                            <% if (loggedIN) { %>
+                                <a href="dashboard" class="btn btn-primary">Dashboard</a>
+                            <% } else { %>
+                                <a href="register" class="btn btn-primary">Get started</a>
+                            <% }  %>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
+                    <div class="offcanvas-header d-flex align-items-center mt-4">
+                        <a href="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
+                        </a>
+                        <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="far fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                            <li><a href="/" class="nav-link">Home</a></li>
+                            <li><a href="pricing" class="nav-link">Pricing</a></li>
+                            <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                            <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                            <li><a href="support" class="nav-link">Support</a></li>
+                        </ul>
+                        <div class="action-btns mt-4 ps-3">
+                          <% if (loggedIN) { %>
+                              <a href="dashboard" class="btn btn-outline-primary me-2">Dashboard</a>
+                              <a href="login" class="btn btn-primary">Sign In</a>
+                          <% } else { %>
+                              <a href="login" class="btn btn-outline-primary me-2">Sign In</a>
+                              <a href="register" class="btn btn-primary">Get started</a>
+                          <% }  %>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="support-content ptb-120">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-8 col-md-8 p-lg-5">
+                            <div class="support-article-wrap">
+                                <h1 class="display-5 mb-4 fw-bold">Terms and Conditions of Use</h1>
+
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Terms</h1>
+                                <p>
+                                  By accessing this Website, accessible from kuroclient.com, you are agreeing to be bound by these Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials contained in this Website are protected by copyright and trade mark law.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Use License</h1>
+                                <p>
+                                  Permission is granted to temporarily download one copy of the materials on kuroclient's Website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                                    modify or copy the materials;
+                                    use the materials for any commercial purpose or for any public display;
+                                    attempt to reverse engineer any software contained on kuroclient's Website;
+                                    remove any copyright or other proprietary notations from the materials; or
+                                    transferring the materials to another person or "mirror" the materials on any other server.
+                                  This will let kuroclient to terminate upon violations of any of these restrictions. Upon termination, your viewing right will also be terminated and you should destroy any downloaded materials in your possession whether it is printed or electronic format.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Disclaimer</h1>
+                                <p>
+                                  All the materials on kuroclient’s Website are provided "as is". kuroclient makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, kuroclient does not make any representations concerning the accuracy or reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Limitations</h1>
+                                <p>
+                                  kuroclient or its suppliers will not be hold accountable for any damages that will arise with the use or inability to use the materials on kuroclient’s Website, even if kuroclient or an authorize representative of this Website has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Revisions and Errata</h1>
+                                <p>
+                                  The materials appearing on kuroclient’s Website may include technical, typographical, or photographic errors. kuroclient will not promise that any of the materials in this Website are accurate, complete, or current. kuroclient may change the materials contained on its Website at any time without notice. kuroclient does not make any commitment to update the materials.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Site Terms of Use Modifications</h1>
+                                <p>
+                                  kuroclient may revise these Terms of Use for its Website at any time without prior notice. By using this Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.
+                                </p>
+                                <h1 style="font-size: calc(0.225rem + 2.1vw);" class="mb-4 fw-bold">Your Privacy</h1>
+                                <p>
+                                    Please read our <a href="privacy-policy">Privacy Policy</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script async id="gtag_script" src="https://www.googletagmanager.com/gtag/js?id=<%= gtag_id %>"></script>
+        <script async src="exterior/js/gtag.js" async></script>
+        <script src="exterior/js/vendors/jquery-3.6.0.min.js"></script>
+        <script src="exterior/js/vendors/bootstrap.bundle.min.js"></script>
+        <script src="exterior/js/vendors/swiper-bundle.min.js"></script>
+        <script src="exterior/js/vendors/jquery.magnific-popup.min.js"></script>
+        <script src="exterior/js/vendors/parallax.min.js"></script>
+        <script src="exterior/js/vendors/aos.js"></script>
+        <script src="exterior/js/app.js"></script>
+    </body>
+</html>

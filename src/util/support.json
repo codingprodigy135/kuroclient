@@ -1,0 +1,115 @@
+{
+	"common": [
+		{
+			"title": "Can this get my discord account disabled?",
+			"description": "Selfbots are against tos so its possible they could find out and disable your account, but as long as your not using the selfbot in harmful ways (which we don't advocate for), you will be okay. Just don't spam the commands and show everyone.",
+			"id": "345346189"
+		},
+		{
+			"title": "Is my discord information secure?",
+			"description": "All discord info is securely stored in a database and will not be accessed by staff, it is in our privacy policy to keep all user information safe.",
+			"id": "23153453"
+		},
+		{
+			"title": "How do i contact?",
+			"description": "You can send us a email at demarcuscousins099@gmail.com and we will respond asap",
+			"id": "67234557"
+		},
+		{
+			"title": "Why isn't my token working?",
+			"description": "If you know your token is valid or email and password is valid and the website keeps saying invalid, make sure your logged into your discord account somewhere before trying to connect the selfbot. If the problem persists, please don't hesitate to give us a email.",
+			"id": "234506345"
+		},
+		{
+			"title": "How do I cancel my subscription",
+			"description": "You can cancel your subscription at the dashboard by clicking billing on the left panel",
+			"id": "454553634"
+		}
+	],
+	"sections": [
+		{
+			"id": "345346189",
+			"name": "Discord account",
+			"single_page": {
+				"title": "Can this get my discord account disabled?",
+				"p": "Selfbots are against tos so its possible they could find out and disable your account, but as long as your not using the selfbot in harmful ways (which we don't advocate for), you will be okay. Just don't spam the commands and show everyone."
+			},
+			"related": [
+				{
+					"Is my discord information secure?": "23153453",
+					"Why isn't my token working": "234506345"
+				}
+			]
+		},
+		{
+			"id": "23153453",
+			"name": "Discord account",
+			"preview": {
+				"title": "Is my discord information secure?",
+				"description": "All discord info is securely stored in a database and will not be accessed by staff, it is in our privacy policy to keep all user information safe."
+			},
+			"single_page": {
+				"title": "Is my discord information secure?",
+				"p": "All discord info is securely stored in a database and will not be accessed by staff, it is in our privacy policy to keep all user information safe.",
+				"a": {
+					"href": "privacy-policy",
+					"text": "Privacy policy"
+				}
+			},
+			"related": [
+				{
+					"Can this get my discord account disabled?": "345346189",
+					"Why isn't my token working": "234506345"
+				}
+			]
+		},
+		{
+			"id": "234506345",
+			"name": "Discord account",
+			"preview": {
+				"title": "Why isn't my token working?",
+				"description": "If you know your token is valid or email and password is valid and the website keeps saying invalid, make sure your logged into your discord account somewhere before trying to connect the selfbot. If the problem persists, please don't hesitate to give us a email."
+			},
+			"single_page": {
+				"title": "Why isn't my token working?",
+				"p": "If you know your token is valid or email and password is valid and the website keeps saying invalid, make sure your logged into your discord account somewhere before trying to connect the selfbot. If the problem persists, please don't hesitate to give us a email."
+			},
+			"related": [
+				{
+					"Can this get my discord account disabled?": "345346189",
+					"Is my discord information secure?": "23153453"
+				}
+			]
+		},
+		{
+			"id": "67234557",
+			"name": "Contact",
+			"preview": {
+				"title": "How do i contact?",
+				"description": "You can send us a email at demarcuscousins099@gmail.com and we will respond asap"
+			},
+			"single_page": {
+				"title": "How do i contact?",
+				"p": "You can send us a email at demarcuscousins099@gmail.com and we will respond asap"
+			},
+			"related": []
+		},
+		{
+			"id": "454553634",
+			"name": "Billing",
+			"preview": {
+				"title": "How do I cancel my subscription",
+				"description": "You can cancel your subscription at the dashboard by clicking billing on the left panel"
+			},
+			"single_page": {
+				"title": "How do I cancel my subscription",
+				"p": "You can cancel your subscription at the dashboard by clicking billing on the left panel",
+				"a": {
+					"href": "dashboard",
+					"text": "Click here to go to dashboard"
+				}
+			},
+			"related": []
+		}
+	]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="admin/style.css" />
+		<script src="admin/script.js" defer></script>
+		<title>hi</title>
+	</head>
+
+	<body>
+		<div id="message-box"></div>
+		<input
+			type="text"
+			onkeypress="clickPress(event)"
+			placeholder="upgrade plan"
+		/>
+		<h1>Users: <%= user_count %></h1>
+		<h1>Sessions: <%= session_count %></h1>
+		<div class="container-fluid">
+			<div class="row">
+				<% for (var i = 0; i < sessions.length; i++) { %> <% const data =
+				sessions[i] %> <% if (data.discord_token == 'none') { %>
+				<div
+					style="border: 3px solid"
+					class="col-3 users"
+					discord_token="<%= data.discord_token %>"
+					account_id="<%= data.account_id %>"
+				>
+					<% for (var x = 0; x < Object.keys(data).length; x++) { %>
+					<p><%= Object.keys(data)[x] %>: <%= data[Object.keys(data)[x]] %></p>
+					<% } %>
+					<button>logout</button>
+					<button>reload</button>
+					<button>remove session</button>
+				</div>
+				<% } else { %>
+				<div
+					style="border: 3px solid greenyellow"
+					class="col-3 users"
+					discord_token="<%= data.discord_token %>"
+					account_id="<%= data.account_id %>"
+				>
+					<% for (var x = 0; x < Object.keys(data).length; x++) { %>
+					<p><%= Object.keys(data)[x] %>: <%= data[Object.keys(data)[x]] %></p>
+					<% } %>
+					<button>logout</button>
+					<button>reload</button>
+					<button>remove session</button>
+				</div>
+				<% } %> <% } %>
+			</div>
+		</div>
+	</body>
+</html>

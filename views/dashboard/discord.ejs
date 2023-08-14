@@ -1,0 +1,240 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>Discord</title>
+
+        <link rel="stylesheet" href="interior/style.css" />
+    </head>
+
+    <body>
+        <div account_id="<%= account_id %>" hidden></div>
+        <div csrfToken="<%= csrfToken %>" hidden></div>
+        <div token="<%= token %>" hidden></div>
+        <div verified="<%= verified %>" hidden></div>
+
+        <div id="preloader">
+             <div class="preload-content">
+                <img src="interior/img/loader.gif">
+             </div>
+        </div>
+        <div class="ecaps-page-wrapper sidemenu-hover-deactive">
+            <div class="ecaps-sidemenu-area bg-img">
+                <div class="ecaps-logo">
+                    <a href="/"><img class="desktop-logo" src="interior/img/logo.png" alt="Desktop Logo" /> <img class="small-logo" src="interior/img/small-logo.png" alt="Mobile Logo" /></a>
+                </div>
+
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+                    <div class="ecaps-sidenav" id="ecapsSideNav" style="overflow: hidden; width: auto; height: 100%;">
+                        <div class="side-menu-area">
+                            <nav>
+                                <ul class="sidebar-menu tree" data-widget="tree">
+                                    <li>
+                                        <a href="dashboard"><i class="bx bx-home-heart"></i><span>Dashboard</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="commands"><i class="bx bx-info-circle"></i><span>Commands</span></a>
+                                    </li>
+                                    <li class="active">
+                                        <a href="discord"><i class="bx bxl-discord"></i><span>Discord</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="messages"><i class="bx bx-message"></i><span>Messages</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="terminal"><i class="bx bx-terminal"></i><span>Terminal</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="support"><i class="bx bx-support"></i><span>Support</span></a>
+                                    </li>
+
+                                    <% if (session_url) { %>
+                                      <li>
+                                          <a href="<%= session_url %>" target="_blank"><i class="bx bx-link-external"></i><span>Billing</span></a>
+                                      </li>
+                                    <% }  %>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="slimScrollBar" style="background: rgb(156, 156, 156); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 0px; height: 940px;"></div>
+                    <div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 0px;"></div>
+                </div>
+            </div>
+
+            <div class="ecaps-page-content">
+                <header class="top-header-area d-flex align-items-center justify-content-between">
+                    <div class="left-side-content-area d-flex align-items-center">
+                        <div class="mobile-logo mr-3 mr-sm-4">
+                            <a href="/"><img src="interior/img/small-logo.png" alt="Mobile Logo" /></a>
+                        </div>
+
+                        <div class="ecaps-triggers mr-1 mr-sm-3">
+                            <div class="menu-collasped" id="menuCollasped">
+                                <i class="bx bx-menu"></i>
+                            </div>
+                            <div class="mobile-menu-open" id="mobileMenuOpen">
+                                <i class="bx bx-menu"></i>
+                            </div>
+                        </div>
+
+                        <ul class="left-side-navbar d-flex align-items-center">
+                            <li style="display: none;" class="hide-phone app-search">
+                                <input type="text" class="form-control" placeholder="Search..." />
+                                <span class="bx bx-search-alt"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="right-side-navbar d-flex align-items-center justify-content-end">
+                        <div class="right-side-trigger" id="rightSideTrigger">
+                            <i class="bx bx-menu-alt-right"></i>
+                        </div>
+
+                        <ul class="right-side-content d-flex align-items-center">
+                            <li id="test1" class="nav-item dropdown">
+                                <div id="settings_div" class="settings">
+                                    <i class="bx bx-cog"></i>
+                                </div>
+                                <div id="test2" class="dropdown-menu profile dropdown-menu-right">
+                                    <div style="background-color: #060606;" class="user-profile-area">
+                                        <a href="settings" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-cog"></i> Settings</a>
+                                        <a href="privacy-policy" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-low-vision"></i> Privacy policy</a>
+                                        <a href="terms-of-service" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-info-circle"></i> Terms of service</a>
+                                        <a href="support" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-support"></i> Support</a>
+                                        <a id="sign_out" style="padding: 0.4rem 0.5rem !important;" class="dropdown-item"><i class="bx bx-exit"></i> Sign-out</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <% if (verified !== true) { %>
+                            <div class="locked_overlay"></div>
+                        <% }  %>
+                        <div class="row">
+                            <div style="margin-top: 25px;" class="col-12">
+                                <div style="margin-bottom: 28px;" class="profile-header-area">
+                                    <div class="card border-none"></div>
+                                    <div class="profile-heading-text">
+                                        <div class="d-md-flex align-items-center justify-content-between">
+                                            <div class="info d-flex align-items-center mb-30-xs">
+                                                <div class="profile-heading-thumb mr-3">
+                                                    <img id="avatar" class="border-radius-50" src="https://cdn.discordapp.com/embed/avatars/3.png" crossorigin="anonymous"/>
+                                                </div>
+                                                <div class="text">
+                                                    <h4 id="username">Not logged in</h4>
+                                                    <p id="bio" class="mb-0"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="store">
+                                                <div class="row mb-30-xs">
+                                                    <div class="col-4 text-center">
+                                                        <span id="nitro" class="text-primary font-18 font-weight-bold mb-0"></span>
+                                                        <span class="d-block text-dark font-weight-bold">Nitro</span>
+                                                    </div>
+                                                    <div class="col-4 text-center">
+                                                        <span id="verified" class="mb-0 font-18 font-weight-bold text-danger"></span>
+                                                        <span class="d-block text-dark font-weight-bold">Verified</span>
+                                                    </div>
+                                                    <div class="col-4 text-center">
+                                                        <span id="mfa_enabled" class="text-success font-18 font-weight-bold mb-0"></span>
+                                                        <span class="d-block text-dark font-weight-bold">Mfa Enabled</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button id="logout" type="button" class="btn btn-rounded btn-primary">
+                                                <span class="btn-inner--text">Logout</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card mb-30">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Set account</h6>
+                                        <p id="discord_error_message"></p>
+                                        <a href="https://www.youtube.com/watch?v=LnBnm_tZlyU" target="_blank" style="color: #7ebcff;">How to get your discord token</a>
+                                        <form style="margin-top: 2rem;"   >
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label" for="inputState">Login method</label>
+                                                <div class="col-sm-9">
+                                                    <select id="login_type" class="myCustomForm form-control">
+                                                        <option selected="">Token</option>
+                                                        <option>Email and password</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div id="form_data">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label" for="form_token">Token</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="myCustomForm form-control" id="form_token" placeholder="Enter Token" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button id="submit_account_change" type="button" class="btn btn-primary">
+                                                <span id="change_account_button_loading" style="display: none;" class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span>Submit
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-30">
+                                    <div class="card-body pb-0">
+                                        <h4 class="card-title">Notification Setting</h4>
+                                        <form>
+                                            <div class="form-group mb-15">
+                                                <div class="checkbox d-inline">
+                                                    <input type="checkbox" name="checkbox-3" id="checkbox-3"/>
+                                                    <label for="checkbox-3" class="cr"> Default custom activity when selfbot connected</label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="interior/js/default-assets/sweetalert2.all.min.js"></script>
+        <script src="interior/js/default-assets/jquery.min.js"></script>
+        <script src="interior/js/default-assets/active.js"></script>
+        <script src="interior/js/global.js"></script>
+        <script src="interior/js/discord.js"></script>
+    </body>
+</html>

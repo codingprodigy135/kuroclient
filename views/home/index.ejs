@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>kuroclient - best discord selfbot client and dashboard</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="exterior/css/main.css" />
+
+        <link rel="stylesheet" href="exterior/css/custom.css" />
+    </head>
+
+    <body>
+        <div id="preloader">
+            <div class="preloader-wrap">
+                <img src="exterior/img/loader.png" alt="logo" class="img-fluid preloader-icon" />
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <header class="main-header w-100 z-10">
+                <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+                    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+                        <a href="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-white.png" alt="logo" class="img-fluid logo-white" />
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                        </a>
+
+                        <a class="navbar-toggler position-absolute right-0 border-0" role="button">
+                            <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse navbar-collapse justify-content-center">
+                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                                <li><a href="/" class="nav-link">Home</a></li>
+                                <li><a href="pricing" class="nav-link">Pricing</a></li>
+                                <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                                <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                                <li><a href="support" class="nav-link">Support</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+                            <a href="login" class="btn btn-link text-decoration-none me-2">Sign In</a>
+                            <% if (loggedIN) { %>
+                                <a href="dashboard" class="btn btn-primary">Dashboard</a>
+                            <% } else { %>
+                                <a href="register" class="btn btn-primary">Get started</a>
+                            <% }  %>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
+                    <div class="offcanvas-header d-flex align-items-center mt-4">
+                        <a href="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
+                        </a>
+                        <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="far fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                            <li><a href="/" class="nav-link">Home</a></li>
+                            <li><a href="pricing" class="nav-link">Pricing</a></li>
+                            <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                            <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                            <li><a href="support" class="nav-link">Support</a></li>
+                        </ul>
+                        <div class="action-btns mt-4 ps-3">
+                            <% if (loggedIN) { %>
+                                <a href="dashboard" class="btn btn-outline-primary me-2">Dashboard</a>
+                                <a href="login" class="btn btn-primary">Sign In</a>
+                            <% } else { %>
+                                <a href="login" class="btn btn-outline-primary me-2">Sign In</a>
+                                <a href="register" class="btn btn-primary">Get started</a>
+                            <% }  %>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="hero-section ptb-120 position-relative overflow-hidden" style="background: url('exterior/img/color-particles-2.svg') no-repeat center top;">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-xl-8 col-lg-10 mb-5">
+                            <div class="hero-content-wrap">
+                                <h1 class="fw-bold display-5" data-aos="fade-up">The best <span style="color: #0067ff;">Selfbot\</span>Dashboard for All your Discord Needs</h1>
+                                <p class="lead" data-aos="fade-up" data-aos-delay="50">Unlock hundreds of customizable discord features and commands to your account in seconds, with a easy to use dashboard to display all the info you need.</p>
+                                <div class="action-btns text-center pt-4" data-aos="fade-up" data-aos-delay="100">
+                                    <a href="register" class="btn btn-primary me-lg-3 me-sm-3">Start for free</a>
+                                    <a href="pricing" class="btn btn-outline-primary">Pricing</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="position-relative" data-aos="fade-up" data-aos-delay="200">
+                                <ul class="position-absolute animate-element parallax-element widget-img-wrap z-2">
+                                    <li class="layer" data-depth="0.04">
+                                        <img src="exterior/img/test3.png" alt="widget-img" class="img-fluid widget-img-1 position-absolute shadow-lg rounded-custom" />
+                                    </li>
+                                    <li class="layer" data-depth="0.02">
+                                        <img src="exterior/img/test2.png" alt="widget-img" class="img-fluid widget-img-3 position-absolute shadow-lg rounded-custom" />
+                                    </li>
+                                </ul>
+                                <img src="exterior/img/test.png" alt="dashboard image" class="img-fluid position-relative rounded-custom mt-lg-5" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark position-absolute bottom-0 h-25 bottom-0 left-0 right-0 z--1 py-5"></div>
+            </section>
+
+            <section class="image-feature ptb-120">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-5 col-12">
+                            <div class="feature-img-content">
+                                <div class="section-heading" data-aos="fade-up">
+                                    <h2>What is a selfbot?</h2>
+                                    <p>
+                                        A selfbot is a bot that is inside your discord account, and allows you do do commands that a normal discord bot can do. We have many commands that will make your experience on discord better and allow you to do things normal users cant with the discord api.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="feature-img-holder pt-3">
+                                <div class=" p-3 bg-danger-soft position-relative rounded-custom d-block feature-img-wrap">
+                                    <div class="position-relative">
+                                        <!-- <img src="exterior/img/test4.gif" class="img-fluid rounded-custom position-relative" alt="feature-image" data-aos="fade-up" data-aos-delay="50" /> -->
+                                        <video class="img-fluid rounded-custom position-relative" data-aos="fade-up" data-aos-delay="50" autoplay muted loop>
+                                          <source src="exterior/img/test5.mp4" type="video/mp4">
+                                          Your browser does not support the video tag.
+                                        </video>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feature-section ptb-120 bg-light">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-10">
+                            <div class="section-heading text-center" data-aos="fade-up">
+                                <h2>What can it do?</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="feature-grid">
+                                <div class="feature-card bg-white shadow-sm highlight-card rounded-custom p-5" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="icon-box d-inline-block rounded-circle bg-primary-soft mb-32">
+                                        <i class="fal fa-analytics icon-sm text-primary"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="h5">Features</h3>
+                                        <p>These are features that your discord account will have access to once you sign up </p>
+                                        <h6 class="mt-4">Most popular</h6>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Image/Message logger</li>
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Auto claim nitro in any server at anytime</li>
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Display anyones avatar or banner anywhere</li>
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Custom profile activity/rich presence</li>
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Mass purge message in dms or servers</li>
+                                            <li class="py-1"><i class="fad fa-check-circle me-2 text-primary"></i>Destroy entire servers in seconds</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="feature-card bg-white shadow-sm rounded-custom p-5" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="icon-box d-inline-block rounded-circle bg-success-soft mb-32">
+                                        <i class="fal fa-file-chart-line icon-sm text-success"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="h5">Automated Reports</h3>
+                                        <p class="mb-0">Check activity on discord such as, how many messages you send, when you are active on discord, and much more</p>
+                                    </div>
+
+                                </div>
+                                <div class="feature-card bg-white shadow-sm rounded-custom p-5" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="icon-box d-inline-block rounded-circle bg-danger-soft mb-32">
+                                        <i class="fal fa-user-friends icon-sm text-danger"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="h5">See how often you talk to friends</h3>
+                                        <p class="mb-0">Easily display voice channel activty, as well as who you talk to the most</p>
+                                    </div>
+
+                                </div>
+                                <div class="feature-card bg-white shadow-sm rounded-custom p-5" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="icon-box d-inline-block rounded-circle bg-dark-soft mb-32">
+                                        <i class="fa fa-shield icon-sm text-dark"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="h5">Moderation and antinuke (coming very soon)</h3>
+                                        <p class="mb-0">Be able to use moderation commands without a discord bot, and protect your discord servers from being destroyed.</p>
+                                    </div>
+
+                                </div>
+                                <div class="feature-card bg-white shadow-sm rounded-custom p-5" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="icon-box d-inline-block rounded-circle bg-warning-soft mb-32">
+                                        <i class="fal fa-cog icon-sm text-warning"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h3 class="h5">Bot customization (coming soon)</h3>
+                                        <p class="mb-0">Create custom selfbot commands with access to discord api features</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script async id="gtag_script" src="https://www.googletagmanager.com/gtag/js?id=<%= gtag_id %>"></script>
+        <script src="exterior/js/gtag.js" async></script>
+        <script src="exterior/js/vendors/jquery-3.6.0.min.js"></script>
+        <script src="exterior/js/vendors/bootstrap.bundle.min.js"></script>
+        <script src="exterior/js/vendors/swiper-bundle.min.js"></script>
+        <script src="exterior/js/vendors/jquery.magnific-popup.min.js"></script>
+        <script src="exterior/js/vendors/parallax.min.js"></script>
+        <script src="exterior/js/vendors/aos.js"></script>
+        <script src="exterior/js/app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>kuroclient - best discord selfbot client and dashboard</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="exterior/css/main.css" />
+
+        <link rel="stylesheet" href="exterior/css/custom.css" />
+    </head>
+
+    <body>
+        <div id="preloader">
+            <div class="preloader-wrap">
+                <img src="exterior/img/loader.png" alt="logo" class="img-fluid preloader-icon" />
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <header class="main-header w-100 z-10">
+                <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+                    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+                        <a href="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-white.png" alt="logo" class="img-fluid logo-white" />
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                        </a>
+
+                        <a class="navbar-toggler position-absolute right-0 border-0"  role="button">
+                            <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse navbar-collapse justify-content-center">
+                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                                <li><a href="/" class="nav-link">Home</a></li>
+                                <li><a href="pricing" class="nav-link">Pricing</a></li>
+                                <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                                <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                                <li><a href="support" class="nav-link">Support</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+                            <a href="login" class="btn btn-link text-decoration-none me-2">Sign In</a>
+                            <% if (loggedIN) { %>
+                                <a href="dashboard" class="btn btn-primary">Dashboard</a>
+                            <% } else { %>
+                                <a href="register" class="btn btn-primary">Get started</a>
+                            <% }  %>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
+                    <div class="offcanvas-header d-flex align-items-center mt-4">
+                        <a href="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
+                        </a>
+                        <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="far fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                          <li><a href="/" class="nav-link">Home</a></li>
+                          <li><a href="pricing" class="nav-link">Pricing</a></li>
+                          <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                          <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                          <li><a href="support" class="nav-link">Support</a></li>
+                      </ul>
+                        <div class="action-btns mt-4 ps-3">
+                          <% if (loggedIN) { %>
+                              <a href="dashboard" class="btn btn-outline-primary me-2">Dashboard</a>
+                              <a href="login" class="btn btn-primary">Sign In</a>
+                          <% } else { %>
+                              <a href="login" class="btn btn-outline-primary me-2">Sign In</a>
+                              <a href="register" class="btn btn-primary">Get started</a>
+                          <% }  %>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div style="padding-bottom: 100px;" class="style-guide"></div>
+
+            <div class="style-guide">
+                <section style="margin-bottom: 100px;" class="pricing-section position-relative z-2">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-10">
+                                <div class="section-heading text-center">
+                                    <h4 class="h5 text-primary">Pricing</h4>
+                                    <p>Simple cheap prices, nothing hidden</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-lg-3">
+                                <div class="media d-flex align-items-center py-2 p-sm-2">
+                                    <div class="icon-box mb-0 bg-primary-soft rounded-circle d-block me-3">
+                                        <i class="fal fa-credit-card text-primary"></i>
+                                    </div>
+                                    <div class="media-body fw-medium h6 mb-0">
+                                        Secure payment
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="media d-flex align-items-center py-2 p-sm-2">
+                                    <div class="icon-box mb-0 bg-success-soft rounded-circle d-block me-3">
+                                        <i class="fal fa-calendar-check text-success"></i>
+                                    </div>
+                                    <div class="media-body fw-medium h6 mb-0">
+                                        Get notifed before billing
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="media d-flex align-items-center py-2 p-sm-2">
+                                    <div class="icon-box mb-0 bg-danger-soft rounded-circle d-block me-3">
+                                        <i class="fal fa-calendar-times text-danger"></i>
+                                    </div>
+                                    <div class="media-body fw-medium h6 mb-0">
+                                        Cancel anytime
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="position-relative single-pricing-wrap rounded-custom bg-white custom-shadow p-5 mb-4 mb-lg-0">
+                                    <div class="pricing-header mb-32">
+                                        <h3 class="package-name text-primary d-block">Free</h3>
+                                        <h4 class="display-6 fw-semi-bold">$0<span>/month</span></h4>
+                                    </div>
+                                    <div class="pricing-info mb-4">
+                                        <ul class="pricing-feature-list list-unstyled">
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> 50% of commands</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Message logger<br>(20 max logs)</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Track general activity per session</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Moderation commands</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Auto delete messages</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Customizable profile activity/rich presence</li>
+                                        </ul>
+                                    </div>
+                                    <a href="register" class="btn btn-outline-primary mt-2">Start Now</a>
+
+                                    <div class="dot-shape-bg position-absolute z--1 left--40 bottom--40">
+                                        <img src="exterior/img/dot-big-square.svg" alt="shape" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="position-relative single-pricing-wrap rounded-custom bg-dark text-white p-5 mb-4 mb-lg-0">
+                                    <div class="pricing-header mb-32">
+                                        <h3 class="package-name text-warning d-block">Pro</h3>
+                                        <h4 class="display-6 fw-semi-bold">$5<span>/month</span></h4>
+                                    </div>
+                                    <div class="pricing-info mb-4">
+                                        <ul class="pricing-feature-list list-unstyled">
+                                          <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> Everything in free plan</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> 100% of commands</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Message logger<br>(100 max logs)</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Track general activity per session</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Image logger</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Nitrosnipe</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Server nuker</li>
+                                            <li><i class="fas fa-circle fa-2xs text-warning me-2"></i> Track voice channel activity</li>
+                                        </ul>
+                                    </div>
+
+                                    <% if (hasProPlan) { %>
+                                      <button id="payment1" class="btn btn-success">Current plan</button>
+                                    <% } else { %>
+                                      <button id="payment1" class="btn btn-primary mt-2">Buy Now</button>
+                                    <% }  %>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="position-relative single-pricing-wrap rounded-custom bg-white custom-shadow p-5 mb-4 mb-lg-0">
+                                    <div class="pricing-header mb-32">
+                                        <h3 class="package-name text-primary d-block">Coming soon....</h3>
+                                        <h4 class="display-6 fw-semi-bold">$10<span>/month</span></h4>
+                                    </div>
+                                    <div class="pricing-info mb-4">
+                                        <ul class="pricing-feature-list list-unstyled">
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                            <li><i class="fas fa-circle fa-2xs text-primary me-2"></i> ???</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="dot-shape-bg position-absolute z--1 right--40 top--40">
+                                        <img src="exterior/img/dot-big-square.svg" alt="shape" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div csrfToken="<%= csrfToken %>" hidden></div>
+                    <div account_id="<%= account_id %>" hidden></div>
+                </section>
+            </div>
+        </div>
+
+        <script async id="gtag_script" src="https://www.googletagmanager.com/gtag/js?id=<%= gtag_id %>"></script>
+        <script src="exterior/js/gtag.js" async></script>
+        <script src="exterior/js/vendors/jquery-3.6.0.min.js"></script>
+        <script src="exterior/js/vendors/bootstrap.bundle.min.js"></script>
+        <script src="exterior/js/vendors/swiper-bundle.min.js"></script>
+        <script src="exterior/js/vendors/jquery.magnific-popup.min.js"></script>
+        <script src="exterior/js/vendors/parallax.min.js"></script>
+        <script src="exterior/js/vendors/aos.js"></script>
+        <script src="exterior/js/app.js"></script>
+        <script src="exterior/js/pricing.js"></script>
+
+    </body>
+</html>

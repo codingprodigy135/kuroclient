@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="title" content="kuroclient " />
+        <meta name="description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="og:title" content="kuroclient" />
+        <meta property="og:url" content="https://kuroclient.com/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+        <meta name="theme-color" content="#00000" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="564" />
+        <meta property="og:image:height" content="444" />
+        <!-- SEO -->
+        <meta name="keywords" content="discord, selfbot, discord bot, discordselfbot, discord client, betterdiscord, self bot, discord hacks" />
+        <!-- Twitter meta tags -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://kuroclient.com" />
+        <meta property="twitter:title" content="https://kuroclient.com" />
+        <meta property="twitter:description" content="The best discord selfbot client to maximize your discord experience." />
+        <meta property="twitter:image" content="https://kuroclient.com/static/exterior/img/logo.jpg" />
+
+        <link rel="icon" href="exterior/img/favicon.png" type="image/png" sizes="16x16" />
+
+        <title>kuroclient - best discord selfbot client and dashboard</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="exterior/css/main.css" />
+
+        <link rel="stylesheet" href="exterior/css/custom.css" />
+    </head>
+
+    <body>
+        <div id="preloader">
+            <div class="preloader-wrap">
+                <img src="exterior/img/loader.png" alt="logo" class="img-fluid preloader-icon" />
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+
+        <div class="main-wrapper">
+            <header class="main-header w-100 z-10">
+                <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+                    <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+                        <a href="/" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-white.png" alt="logo" class="img-fluid logo-white" />
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid logo-color" />
+                        </a>
+
+                        <a class="navbar-toggler position-absolute right-0 border-0"  role="button">
+                            <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"></span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse navbar-collapse justify-content-center">
+                            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                                <li><a href="/" class="nav-link">Home</a></li>
+                                <li><a href="pricing" class="nav-link">Pricing</a></li>
+                                <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                                <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                                <li><a href="support" class="nav-link">Support</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+                            <a href="login" class="btn btn-link text-decoration-none me-2">Sign In</a>
+                            <% if (loggedIN) { %>
+                                <a href="dashboard" class="btn btn-primary">Dashboard</a>
+                            <% } else { %>
+                                <a href="register" class="btn btn-primary">Get started</a>
+                            <% }  %>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
+                    <div class="offcanvas-header d-flex align-items-center mt-4">
+                        <a href="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
+                            <img src="exterior/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
+                        </a>
+                        <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <i class="far fa-close"></i>
+                        </button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+                            <li><a href="/" class="nav-link">Home</a></li>
+                            <li><a href="pricing" class="nav-link">Pricing</a></li>
+                            <li><a href="terms-of-service" class="nav-link">Terms of service</a></li>
+                            <li><a href="privacy-policy" class="nav-link">Privacy policy</a></li>
+                            <li><a href="support" class="nav-link">Support</a></li>
+                        </ul>
+                        <div class="action-btns mt-4 ps-3">
+                          <% if (loggedIN) { %>
+                              <a href="dashboard" class="btn btn-outline-primary me-2">Dashboard</a>
+                              <a href="login" class="btn btn-primary">Sign In</a>
+                          <% } else { %>
+                              <a href="login" class="btn btn-outline-primary me-2">Sign In</a>
+                              <a href="register" class="btn btn-primary">Get started</a>
+                          <% }  %>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="page-header position-relative overflow-hidden ptb-120 bg-dark" style="background: url('exterior/img/page-header-bg.svg') no-repeat bottom left;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="text-center">
+                                <h1 class="display-5 fw-bold">Support</h1>
+                                <p class="lead">What do you need help with today?</p>
+
+                                <!-- <div class="form-block-banner mw-60 m-auto mt-5">
+                                    <form name="search" class="search-form d-flex">
+                                        <input type="email" class="form-control me-2" name="search" data-name="search" placeholder="Search for a topic or question" id="searchForm" required="" />
+                                        <input type="submit" value="Search" data-wait="Please wait..." class="btn btn-primary" />
+                                    </form>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light right-5"></div>
+                </div>
+            </section>
+
+            <section class="support-content ptb-120">
+                <div class="container">
+                    <div class="row justify-content-between">
+
+                        <div class="col-lg-7 col-md-8">
+                            <div class="tab-content" id="v-pills-supportContent">
+                                <div class="tab-pane fade show active" id="support-tab-1" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Commonly asked questions</h2>
+                                        <ul class="support-article-list list-unstyled mt-4">
+
+                                          <% for (var i = 0; i < data.common.length; i++) { %>
+                                              <li class="py-4 border-top border-light">
+                                                  <a href="support/<%= data.common[i].id %>" class="text-decoration-none d-block text-muted">
+                                                      <h3 class="h5 support-article-title"><%= data.common[i].title %></h3>
+                                                      <p><%= data.common[i].description %></p>
+                                                      <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                  </a>
+                                              </li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-2" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Payments Query</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-3" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Setup or Installment</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-4" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Technical Support</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-5" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Retailers & Customer</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-6" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Security Issues</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-7" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Brand Creation</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="support-tab-8" role="tabpanel">
+                                    <div class="support-article-wrap">
+                                        <h2>Legal Support</h2>
+                                        <ul class="support-article-list list-unstyled">
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you have any local branches?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What do I need to create an account?</h3>
+                                                    <p>Intrinsicly evisculate e-business best practices productivate standardized convergence. Credibly evisculate mission-critical ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Do you offer refunds for the subscriptions?</h3>
+                                                    <p>Credibly evisculate mission-critical with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Intrinsicly evisculate e-business best practices ...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">Are you open for new podcast guests?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">When is the upcoming annual event?</h3>
+                                                    <p>Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative e-business best practices productivate standardized...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What is the monthly cost of your app?</h3>
+                                                    <p>Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate e-business best practices productivate standardized convergence...</p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="py-4 border-top border-light">
+                                                <a href="support-single.html" class="text-decoration-none d-block text-muted">
+                                                    <h3 class="h5 support-article-title">What’s inside the Facebook community?</h3>
+                                                    <p>
+                                                        Credibly evisculate mission-critical products before quality e-services. Rapidiously incubate alternative infrastructures with high standards in e-markets. Intrinsicly evisculate
+                                                        e-business best practices productivate standardized convergence...
+                                                    </p>
+                                                    <span class="btn-link text-decoration-none read-more-link">Read More <i class="far fa-arrow-right ms-2"></i></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script async id="gtag_script" src="https://www.googletagmanager.com/gtag/js?id=<%= gtag_id %>"></script>
+        <script src="exterior/js/gtag.js" async></script>
+        <script src="exterior/js/vendors/jquery-3.6.0.min.js"></script>
+        <script src="exterior/js/vendors/bootstrap.bundle.min.js"></script>
+        <script src="exterior/js/vendors/swiper-bundle.min.js"></script>
+        <script src="exterior/js/vendors/jquery.magnific-popup.min.js"></script>
+        <script src="exterior/js/vendors/parallax.min.js"></script>
+        <script src="exterior/js/vendors/aos.js"></script>
+        <script src="exterior/js/app.js"></script>
+    </body>
+</html>
