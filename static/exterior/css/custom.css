@@ -1,0 +1,5 @@
+#error_message{
+    --bs-text-opacity: 1;
+    color: red;
+    font-weight: 900;
+}

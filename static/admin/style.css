@@ -1,0 +1,19 @@
+.users {
+	min-width: 250px;
+	margin-bottom: 2rem;
+}
+#message-box {
+	height: 20vh;
+	border: 1px solid red;
+}
+@media (max-width: 1024px) {
+	.users {
+		min-width: 100vw;
+	}
+}
+p {
+	margin: 0;
+	padding: 0;
+	overflow-wrap: break-word;
+	margin-bottom: 1rem;
+}
